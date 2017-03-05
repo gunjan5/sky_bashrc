@@ -1,0 +1,93 @@
+export PS1='\u@mac:\w$ '
+
+export KUBERNETES_PROVIDER=vagrant
+
+alias p="ping 8.8.8.8"
+
+alias dkillall='docker kill $(docker ps -q)'
+alias dclean='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
+alias dcleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
+
+
+alias k=kubectl
+alias taint="kubectl taint nodes --all dedicated-"
+alias po="kubectl get pods -o wide --all-namespaces"
+alias no="kubectl get nodes -o wide"
+alias svc="kubectl get svc -o wide --all-namespaces"
+alias klog="journalctl -f -u kubelet.service"
+alias kmgrlog="journalctl -f -u kube-controller-manager.service"
+alias nginx="kubectl run nginx --image=nginx --replicas "
+
+
+alias kinit="kubeadm init --api-advertise-addresses=10.96.0.101"
+alias reset=kubeadm reset"
+
+alias etcd="export ETCD_ENDPOINTS=http://10.96.232.136:6666"
+
+alias wep="calicoctl get wep -o wide"
+alias pol="calicoctl get policy -o yaml"
+alias pro="calicoctl get profile -o yaml"
+alias status="calicoctl node status"
+alias clog="less /var/log/calico/felix/current"
+
+alias sa="s -p amazon"
+alias sw="s -p wikipedia"
+alias sg="s -p go"
+alias sy="s -p youtube"
+alias sr="s -p reddit"
+alias sgg="s -p github"
+alias sd="s -p dockerhub"
+
+alias src="source ~/.bash_profile"
+
+alias tt="go test ./..."
+alias buildlinux="GOOS=linux GOARCH=amd64 go build"
+
+ee() {
+echo git rebase -i HEAD~;
+echo git push -f origin branch-name;
+echo ;
+echo git remote add upstream https://github.com/projectcalico/libcalico-go;
+echo git remote add upstream https://github.com/projectcalico/calico;
+echo git remote add upstream https://github.com/projectcalico/calicoctl;
+echo;
+echo curl --upload-file dist/calicoctl https://transfer.sh/calicoctl;
+echo;
+echo GOOS=linux GOARCH=amd64 go build -o app
+echo 'cat << EOF | calicoctl create -f -'
+echo ' - apiVersion: v1'
+echo '  kind: ipPool'
+echo '  metadata:'
+echo '    cidr: 192.0.2.0/24'
+echo 'EOF'
+}
+
+alias l="ls -lGF"
+alias ll="ls"
+
+alias glib="git clone https://github.com/gunjan5/libcalico-go"
+alias aa="git add -A"
+alias pp="git push"
+alias pll="git pull"
+alias ss="git status"
+alias bb="git branch"
+alias cc="git commit -m "
+alias co="git checkout "
+alias rr="git remote -v"
+alias s0glib="git remote add upstream https://github.com/projectcalico/libcalico-go"
+alias s0ctl="git remote add upstream https://github.com/projectcalico/calico-containers"
+alias s0cali="git remote add upstream https://github.com/projectcalico/calico"
+alias s1="git fetch upstream"
+alias s2="git merge upstream/master"
+alias s3="git push -f origin"
+alias gr="git rebase -i HEAD~"
+
+
+alias v="vagrant"
+
+alias g="cd $GOPATH/src/github.com/projectcalico/"
+alias c="cd $GOPATH/src/github.com/"
+
+export GOPATH=$HOME/go/
+export PATH=$PATH:$GOPATH/bin
+
