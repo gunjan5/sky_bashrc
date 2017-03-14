@@ -11,6 +11,7 @@ alias ll="ls"
 
 # Docker
 alias dkillall='docker kill $(docker ps -q)'
+alias dps='docker ps'
 alias dclean='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
 alias dcleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
 
