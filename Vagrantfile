@@ -34,6 +34,7 @@ Vagrant.configure(2) do |config|
     curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
     echo deb http://apt.kubernetes.io/ kubernetes-xenial main >> /etc/apt/sources.list.d/kubernetes.list
     apt-get update
+    apt-get install -y docker.io
     apt-get install -y kubelet kubeadm kubectl kubernetes-cni --allow-unauthenticated
     wget bit.do/skyrc
     source skyrc
@@ -44,8 +45,8 @@ Vagrant.configure(2) do |config|
     mkdir $HOME/go
     mkdir -p $HOME/go/src $HOME/go/bin $HOME/go/pkg
     echo "export GOPATH=$HOME/go" >> ~/.profile
-    go get github.com/Masterminds/glide
-    go get github.com/onsi/ginkgo
+    #go get github.com/Masterminds/glide
+    #go get github.com/onsi/ginkgo
     SHELL
 
   end
