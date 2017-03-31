@@ -1,5 +1,5 @@
 # Other 
-export PS1='\u@mac:\w$ '
+export PS1='\u@\u:\w$ '
 export KUBERNETES_PROVIDER=vagrant
 alias v="vagrant"
 alias p="ping 8.8.8.8"
@@ -80,6 +80,7 @@ echo ;
 echo git remote add upstream https://github.com/projectcalico/libcalico-go;
 echo git remote add upstream https://github.com/projectcalico/calico;
 echo git remote add upstream https://github.com/projectcalico/calicoctl;
+echo git remote add upstream https://github.com/projectcalico/cni-plugin;
 echo;
 echo kubeadm init --use-kubernetes-version=v1.6.0 --api-advertise-addresses=10.96.0.101 --pod-network-cidr=10.244.0.0/16;
 echo;
