@@ -83,7 +83,7 @@ echo git remote add upstream https://github.com/projectcalico/calico;
 echo git remote add upstream https://github.com/projectcalico/calicoctl;
 echo git remote add upstream https://github.com/projectcalico/cni-plugin;
 echo;
-echo kubeadm init --use-kubernetes-version=v1.6.0 --api-advertise-addresses=10.96.0.101 --pod-network-cidr=10.244.0.0/16;
+echo kubeadm init --apiserver-advertise-address=10.96.0.101 --pod-network-cidr=10.244.0.0/16  --kubernetes-version=v1.6.3;
 echo;
 echo curl --upload-file dist/calicoctl https://transfer.sh/calicoctl;
 echo;
