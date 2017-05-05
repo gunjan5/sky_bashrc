@@ -85,6 +85,10 @@ echo git remote add upstream https://github.com/projectcalico/cni-plugin;
 echo;
 echo kubeadm init --apiserver-advertise-address=10.96.0.101 --pod-network-cidr=10.244.0.0/16  --kubernetes-version=v1.6.3;
 echo;
+echo  sudo cp /etc/kubernetes/admin.conf $HOME/;
+echo  sudo chown $(id -u):$(id -g) $HOME/admin.conf;
+echo  export KUBECONFIG=$HOME/admin.conf;
+echo;
 echo curl --upload-file dist/calicoctl https://transfer.sh/calicoctl;
 echo;
 echo GOOS=linux GOARCH=amd64 go build -o app
