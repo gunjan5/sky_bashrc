@@ -1,6 +1,5 @@
 # Other 
 export PS1='\u@\h:\w$ '
-export KUBERNETES_PROVIDER=vagrant
 alias v="vagrant"
 alias p="ping 8.8.8.8"
 alias src="source ~/.bash_profile"
@@ -20,8 +19,12 @@ alias k=kubectl
 alias taint="kubectl taint nodes --all node-role.kubernetes.io/master-"
 alias po="kubectl get pods -o wide --all-namespaces"
 alias no="kubectl get nodes -o wide"
+alias dep="kubectl get deployments -o wide"
+alias np="kubectl get networkpolicy -o wide --all-namespaces"
 alias svc="kubectl get svc -o wide --all-namespaces"
 alias klog="journalctl -f -u kubelet.service"
+alias klogall="journalctl -u kubelet.service"
+alias ns="kubectl get ns"
 alias kmgrlog="journalctl -f -u kube-controller-manager.service"
 alias nginx="kubectl run nginx --image=nginx --replicas "
 
@@ -33,8 +36,10 @@ alias reset="kubeadm reset"
 alias etcd="export ETCD_ENDPOINTS=http://10.96.232.136:6666"
 
 alias wep="calicoctl get wep -o wide"
-alias pol="calicoctl get policy -o yaml"
-alias pro="calicoctl get profile -o yaml"
+alias poy="calicoctl get policy -o yaml"
+alias pry="calicoctl get profile -o yaml"
+alias pol="calicoctl get policy -o wide"
+alias prl="calicoctl get profile -o wide"
 alias status="calicoctl node status"
 alias clog="less /var/log/calico/felix/current"
 
