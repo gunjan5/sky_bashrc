@@ -18,6 +18,7 @@ alias dcleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docke
 alias k=kubectl
 alias taint="kubectl taint nodes --all node-role.kubernetes.io/master-"
 alias po="kubectl get pods -o wide --all-namespaces"
+alias wpo="watch kubectl get pods -o wide --all-namespaces"
 alias no="kubectl get nodes -o wide"
 alias dep="kubectl get deployments -o wide"
 alias np="kubectl get networkpolicy -o wide --all-namespaces"
