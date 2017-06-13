@@ -96,6 +96,7 @@ echo  sudo chown $(id -u):$(id -g) $HOME/admin.conf;
 echo  export KUBECONFIG=$HOME/admin.conf;
 echo;
 echo curl --upload-file dist/calicoctl https://transfer.sh/calicoctl;
+echo grep -rnw ./ -e ''
 echo;
 echo GOOS=linux GOARCH=amd64 go build -o app
 echo 'cat << EOF | calicoctl create -f -'
