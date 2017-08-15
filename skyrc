@@ -41,6 +41,8 @@ alias reset="kubeadm reset"
 # Calico
 alias etcd="export ETCD_ENDPOINTS=http://10.96.232.136:6666"
 
+alias kdd="export DATASTORE_TYPE=kubernetes; export KUBECONFIG=~/.kube/config; echo 'export DATASTORE_TYPE=kubernetes \n export KUBECONFIG=~/.kube/config'"
+
 alias wep="calicoctl get wep -o wide"
 alias poy="calicoctl get policy -o yaml"
 alias pry="calicoctl get profile -o yaml"
