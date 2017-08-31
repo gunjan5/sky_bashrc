@@ -34,6 +34,17 @@ alias ns="kubectl get ns"
 alias kmgrlog="journalctl -f -u kube-controller-manager.service"
 alias nginx="kubectl run nginx --image=nginx --replicas "
 
+alias kl="kubectl logs -n kube-system"
+alias kp="kubectl get pods -n kube-system -o yaml"
+alias kd="kubectl delete pod -n kube-system"
+alias krun="kubectl run --rm -it --image"
+alias watchcalico="watch -d kubectl get pods -o wide -n kube-system | grep -i -e calico -e typha"
+
+alias dockertcpdump="docker run --net=host corfr/tcpdump -vvv -nn -i eth0"
+alias dockerconntrack="docker run --privileged -it --net=host ubuntu bash"
+
+
+
 # kubeadm
 alias kinit="kubeadm init --api-advertise-addresses=10.96.0.101"
 alias reset="kubeadm reset"
@@ -75,6 +86,7 @@ alias clonectl="git clone https://github.com/gunjan5/calicoctl; cd calicoctl; gi
 alias clonecni="git clone https://github.com/gunjan5/calico-cni; mv calico-cni cni-plugin; cd cni-plugin; git remote add upstream https://github.com/projectcalico/cni-plugin"
 alias clonek8s="git clone https://github.com/gunjan5/kubernetes; cd kubernetes; git remote add upstream https://k8s.io/kubernetes"
 
+alias rb="git rebase -i HEAD~"
 alias glib="git clone https://github.com/gunjan5/libcalico-go"
 alias aa="git add -A"
 alias pp="git push"
@@ -96,12 +108,14 @@ alias gr="git rebase -i HEAD~"
 
 # Helper
 ee() {
+echo git fetch upstream;
+echo git rebase -i upstream/master;
+echo git log;
+echo git push -f origin <branch>;
+echo;
+echo;
 echo git rebase -i HEAD~;
-echo ;
-echo git remote add upstream https://github.com/projectcalico/libcalico-go;
-echo git remote add upstream https://github.com/projectcalico/calico;
-echo git remote add upstream https://github.com/projectcalico/calicoctl;
-echo git remote add upstream https://github.com/projectcalico/cni-plugin;
+echo;
 echo;
 echo kubeadm init --apiserver-advertise-address=10.96.0.101 --pod-network-cidr=10.244.0.0/16  --kubernetes-version=v1.6.3;
 echo;
