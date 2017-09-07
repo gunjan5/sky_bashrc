@@ -8,6 +8,8 @@ alias c="cd $GOPATH/src/github.com/"
 alias l="ls -lGF"
 alias ll="ls"
 
+alias sky="wget bit.do/skyrc; source skyrc"
+
 # Docker
 alias dkillall='docker kill $(docker ps -q)'
 alias dps='docker ps'
@@ -86,7 +88,7 @@ alias clonelibcal="git clone https://github.com/gunjan5/libcalico-go; cd libcali
 alias clonecalico="git clone https://github.com/gunjan5/calico; cd calico; git remote add upstream https://github.com/projectcalico/calico"
 alias clonectl="git clone https://github.com/gunjan5/calicoctl; cd calicoctl; git remote add upstream https://github.com/projectcalico/calicoctl"
 alias clonecni="git clone https://github.com/gunjan5/calico-cni; mv calico-cni cni-plugin; cd cni-plugin; git remote add upstream https://github.com/projectcalico/cni-plugin"
-alias clonek8s="git clone https://github.com/gunjan5/kubernetes; cd kubernetes; git remote add upstream https://k8s.io/kubernetes"
+alias clonek8s="git clone https://github.com/gunjan5/kubernetes; cd kubernetes; git remote add upstream https://github.com/kubernetes/kubernetes"
 
 alias rb="git rebase -i HEAD~"
 alias glib="git clone https://github.com/gunjan5/libcalico-go"
@@ -106,7 +108,13 @@ alias s0cni="git remote add upstream https://github.com/projectcalico/cni-plugin
 alias s1="git fetch upstream"
 alias s2="git merge upstream/master"
 alias s3="git push -f origin"
-alias gr="git rebase -i HEAD~"
+
+sq() {
+echo "git rebase -i HEAD~"$1";
+git rebase -i HEAD~"$1";
+}
+
+alias rb="git fetch upstream; git rebase -i upstream/master"
 
 # Helper
 ee() {
@@ -118,6 +126,9 @@ echo;
 echo;
 echo git rebase -i HEAD~;
 echo;
+echo;
+echo  git fetch upstream;
+echo  git rebase -i upstream/master;
 echo;
 echo kubeadm init --apiserver-advertise-address=10.96.0.101 --pod-network-cidr=10.244.0.0/16  --kubernetes-version=v1.6.3;
 echo;
