@@ -16,6 +16,14 @@ alias dps='docker ps'
 alias dclean='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
 alias dcleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
 
+# CRI-O
+alias c="sudo crioctl"
+alias cps="sudo crioctl pod list"
+alias cimg="sudo crioctl image list"
+alias ccps="sudo crioctl container list"
+
+# kpod
+
 # kubectl
 alias k=kubectl
 alias taint="kubectl taint nodes --all node-role.kubernetes.io/master-"
@@ -110,7 +118,7 @@ alias s2="git merge upstream/master"
 alias s3="git push -f origin"
 
 sq() {
-echo "git rebase -i HEAD~"$1";
+echo git rebase -i HEAD~"$1";
 git rebase -i HEAD~"$1";
 }
 
