@@ -42,7 +42,7 @@ alias klog="journalctl -f -u kubelet.service"
 alias klogall="journalctl -u kubelet.service"
 alias ns="kubectl get ns"
 alias kmgrlog="journalctl -f -u kube-controller-manager.service"
-alias nginx="kubectl run nginx --image=nginx --replicas "
+alias nginx="kubectl run nginx --image=nginx:1.9 --replicas "
 alias busy="kubectl run busybox --image=busybox --replicas "
 
 alias kl="kubectl logs -n kube-system"
