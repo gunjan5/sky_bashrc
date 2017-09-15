@@ -59,8 +59,8 @@ alias dockerconntrack="docker run --privileged -it --net=host ubuntu bash"
 
 
 # kubeadm
-alias kinit="kubeadm init --api-advertise-addresses=10.96.0.101"
-alias reset="kubeadm reset"
+alias kinit="sudo kubeadm init --api-advertise-addresses=10.96.0.101"
+alias reset="sudo kubeadm reset"
 
 # Calico
 alias etcd="export ETCD_ENDPOINTS=http://10.96.232.136:6666"
