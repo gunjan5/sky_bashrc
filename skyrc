@@ -95,7 +95,7 @@ export PATH=$PATH:$GOPATH/bin
 # Git
 alias clonelibcal="git clone https://github.com/gunjan5/libcalico-go; cd libcalico-go; git remote add upstream https://github.com/projectcalico/libcalico-go"
 alias clonecalico="git clone https://github.com/gunjan5/calico; cd calico; git remote add upstream https://github.com/projectcalico/calico"
-alias clonectl="git clone https://github.com/gunjan5/calico-containers; cd calicoctl; git remote add upstream https://github.com/projectcalico/calicoctl"
+alias clonectl="git clone https://github.com/gunjan5/calico-containers;mv calico-containers calicoctl; cd calicoctl; git remote add upstream https://github.com/projectcalico/calicoctl"
 alias clonecni="git clone https://github.com/gunjan5/calico-cni; mv calico-cni cni-plugin; cd cni-plugin; git remote add upstream https://github.com/projectcalico/cni-plugin"
 alias clonek8s="git clone https://github.com/gunjan5/kubernetes; cd kubernetes; git remote add upstream https://github.com/kubernetes/kubernetes"
 
