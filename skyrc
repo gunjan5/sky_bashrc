@@ -156,3 +156,5 @@ echo '  metadata:'
 echo '    cidr: 192.0.2.0/24'
 echo 'EOF'
 }
+
+source ~/.skyrc
