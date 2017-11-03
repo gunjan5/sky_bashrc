@@ -114,10 +114,11 @@ alias s0glib="git remote add upstream https://github.com/projectcalico/libcalico
 alias s0ctl="git remote add upstream https://github.com/projectcalico/calico-containers"
 alias s0cali="git remote add upstream https://github.com/projectcalico/calico"
 alias s0cni="git remote add upstream https://github.com/projectcalico/cni-plugin"
-alias s1="git fetch upstream"
+alias s1="git fetch upstream; git checkout master"
 alias s2="git merge upstream/master"
 alias s3="git push -f origin"
-alias 11="git fetch upstream; git merge upstream/master; git push -f origin"
+alias 11="git fetch upstream; git checkout master; git merge upstream/master; git push -f origin"
+alias sy="git fetch upstream && git checkout master && git merge upstream/master"
 
 sq() {
 echo git rebase -i HEAD~"$1";
