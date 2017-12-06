@@ -89,7 +89,7 @@ alias sd="s -p dockerhub"
 alias tt="go test ./..."
 alias buildlinux="GOOS=linux GOARCH=amd64 go build"
 
-export GOPATH=$HOME/go/
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 # Git
