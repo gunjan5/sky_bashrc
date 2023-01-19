@@ -1,14 +1,12 @@
 # Other 
-export PS1='\u@\h:\w$ '
-alias v="vagrant"
+export PS1='%n@%m %~$ '
 alias p="ping 8.8.8.8"
 alias src="source ~/.bash_profile"
 alias g="cd $GOPATH/src/github.com/"
-alias c="cd $GOPATH/src/github.com/"
 alias l="ls -lGF"
 alias ll="ls"
 
-alias sky="wget bit.do/skyrc; source skyrc"
+alias sky="wget bit.ly/sky-rc; source skyrc"
 
 # Docker
 alias dkillall='docker kill $(docker ps -q)'
@@ -63,28 +61,6 @@ alias dockerconntrack="docker run --privileged -it --net=host ubuntu bash"
 alias kinit="sudo kubeadm init --api-advertise-addresses=10.96.0.101"
 alias reset="sudo kubeadm reset"
 
-# Calico
-alias etcd="export ETCD_ENDPOINTS=http://10.96.232.136:6666"
-
-alias kdd="export DATASTORE_TYPE=kubernetes; export KUBECONFIG=~/.kube/config; echo 'export DATASTORE_TYPE=kubernetes \n export KUBECONFIG=~/.kube/config'"
-
-alias wep="calicoctl get wep -o wide"
-alias poy="calicoctl get policy -o yaml"
-alias pry="calicoctl get profile -o yaml"
-alias pol="calicoctl get policy -o wide"
-alias prl="calicoctl get profile -o wide"
-alias prl="calicoctl get ippool -o wide"
-alias status="calicoctl node status"
-alias clog="less /var/log/calico/felix/current"
-
-# s 
-alias sa="s -p amazon"
-alias sw="s -p wikipedia"
-alias sg="s -p go"
-alias sy="s -p youtube"
-alias sr="s -p reddit"
-alias sgg="s -p github"
-alias sd="s -p dockerhub"
 
 # Go 
 alias tt="go test ./..."
@@ -94,12 +70,6 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 # Git
-alias clonelibcal="git clone https://github.com/gunjan5/libcalico-go; cd libcalico-go; git remote add upstream https://github.com/projectcalico/libcalico-go"
-alias clonecalico="git clone https://github.com/gunjan5/calico; cd calico; git remote add upstream https://github.com/projectcalico/calico"
-alias clonectl="git clone https://github.com/gunjan5/calico-containers;mv calico-containers calicoctl; cd calicoctl; git remote add upstream https://github.com/projectcalico/calicoctl"
-alias clonecni="git clone https://github.com/gunjan5/calico-cni; mv calico-cni cni-plugin; cd cni-plugin; git remote add upstream https://github.com/projectcalico/cni-plugin"
-alias clonek8s="git clone https://github.com/gunjan5/kubernetes; cd kubernetes; git remote add upstream https://github.com/kubernetes/kubernetes"
-
 alias rb="git rebase -i HEAD~"
 alias glib="git clone https://github.com/gunjan5/libcalico-go"
 alias aa="git add -A"
@@ -111,10 +81,6 @@ alias cc="git commit -m "
 alias co="git checkout "
 alias rr="git remote -v"
 alias dd="git diff"
-alias s0glib="git remote add upstream https://github.com/projectcalico/libcalico-go"
-alias s0ctl="git remote add upstream https://github.com/projectcalico/calico-containers"
-alias s0cali="git remote add upstream https://github.com/projectcalico/calico"
-alias s0cni="git remote add upstream https://github.com/projectcalico/cni-plugin"
 alias s1="git fetch upstream; git checkout master"
 alias s2="git merge upstream/master"
 alias s3="git push -f origin"
@@ -152,12 +118,7 @@ echo curl --upload-file dist/calicoctl https://transfer.sh/calicoctl;
 echo grep -rnw ./ -e ''
 echo;
 echo GOOS=linux GOARCH=amd64 go build -o app
-echo 'cat << EOF | calicoctl create -f -'
-echo ' - apiVersion: v1'
-echo '  kind: ipPool'
-echo '  metadata:'
-echo '    cidr: 192.0.2.0/24'
-echo 'EOF'
+
 }
 
 source ~/.skyrc
