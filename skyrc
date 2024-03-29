@@ -4,6 +4,7 @@ alias p="ping 8.8.8.8"
 alias g="cd $GOPATH/src/github.com/"
 alias l="ls -lGF"
 source ~/.zshrc
+cd $GOPATH/src/github.com/gunjan5
 
 alias sky="wget bit.ly/sky-rc; source skyrc"
 
