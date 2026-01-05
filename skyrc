@@ -1,73 +1,39 @@
-# Other 
+# Other
 export PS1='%n@%m %~$ '
 alias p="ping 8.8.8.8"
-alias src="source ~/.bash_profile"
 alias g="cd $GOPATH/src/github.com/"
 alias l="ls -lGF"
-alias ll="ls"
+source ~/.zshrc
+cd $GOPATH/src/github.com/gunjan5
+
+alias vp="vercel deploy --prod"
 
 alias sky="wget bit.ly/sky-rc; source skyrc"
 
 # Docker
 alias dkillall='docker kill $(docker ps -q)'
 alias dps='docker ps'
-alias dpsa='docker ps -a'
-alias dclean='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
-alias dcleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
-
-# CRI-O
-alias c="sudo crioctl"
-alias cps="sudo crioctl pod list"
-alias cimg="sudo crioctl image list"
-alias ccps="sudo crioctl container list"
-
-# kpod
 
 # kubectl
 alias k=kubectl
-alias taint="kubectl taint nodes --all node-role.kubernetes.io/master-"
 alias po="kubectl get pods -o wide --all-namespaces"
-alias wpo="watch -d -n 1 kubectl get pods -o wide --all-namespaces"
 alias no="kubectl get nodes -o wide"
-alias wno="watch -d -n 1 kubectl get nodes -o wide"
 alias deploy="kubectl get deployments -o wide --all-namespaces"
 alias ds="kubectl get ds -o wide --all-namespaces"
-alias np="kubectl get networkpolicy -o wide --all-namespaces"
-alias crd="kubectl get crd"
-alias tpr="kubectl get thirdpartyresource"
 alias svc="kubectl get svc -o wide --all-namespaces"
 alias wsvc="watch -d -n 1 kubectl get svc -o wide --all-namespaces"
 alias klog="journalctl -f -u kubelet.service"
 alias klogall="journalctl -u kubelet.service"
 alias ns="kubectl get ns"
-alias kmgrlog="journalctl -f -u kube-controller-manager.service"
 alias nginx="kubectl run nginx --image=nginx:1.9 --replicas "
 alias busy="kubectl run busybox --image=busybox --replicas "
 
-alias kl="kubectl logs -n kube-system"
-alias kp="kubectl get pods -n kube-system -o yaml"
-alias kd="kubectl delete pod -n kube-system"
-alias krun="kubectl run --rm -it --image"
-alias watchcalico="watch -d -n 1 kubectl get pods -o wide -n kube-system | grep -i -e calico -e typha"
 
-alias rune2es="./e2e.test -kubeconfig=/Users/gunjan/.kube/config --ginkgo.focus='(Networking).*(\[Conformance\])|\[Feature:NetworkPolicy\]'"
-
-alias dockertcpdump="docker run --net=host corfr/tcpdump -vvv -nn -i eth0"
-alias dockerconntrack="docker run --privileged -it --net=host ubuntu bash"
-
-
-
-# kubeadm
-alias kinit="sudo kubeadm init --api-advertise-addresses=10.96.0.101"
-alias reset="sudo kubeadm reset"
-
-
-# Go 
+# Go
 alias tt="go test ./..."
 alias buildlinux="GOOS=linux GOARCH=amd64 go build"
 
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
 
 # Git
 alias rb="git rebase -i HEAD~"
@@ -101,14 +67,10 @@ echo git rebase -i upstream/master;
 echo git log;
 echo git push -f origin branch-name;
 echo;
-echo;
 echo git rebase -i HEAD~;
-echo;
 echo;
 echo  git fetch upstream;
 echo  git rebase -i upstream/master;
-echo;
-echo kubeadm init --apiserver-advertise-address=10.96.0.101 --pod-network-cidr=10.244.0.0/16  --kubernetes-version=v1.6.3;
 echo;
 echo  sudo cp /etc/kubernetes/admin.conf $HOME/;
 echo  sudo chown $(id -u):$(id -g) $HOME/admin.conf;
@@ -118,7 +80,10 @@ echo curl --upload-file dist/calicoctl https://transfer.sh/calicoctl;
 echo grep -rnw ./ -e ''
 echo;
 echo GOOS=linux GOARCH=amd64 go build -o app
-
 }
 
-source ~/.skyrc
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/gunjan/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/gunjan/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/gunjan/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/gunjan/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
